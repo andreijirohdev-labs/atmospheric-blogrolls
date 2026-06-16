@@ -1,64 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import DropdownMenu from '../components/DropdownMenu.astro';
-
-// Structured blogroll data
-const blogs = [
-  {
-    title: "The Nebula Archive",
-    author: "Cassiopeia",
-    category: "space",
-    categoryLabel: "Space & Astronomy",
-    description: "Capturing the faint glows of emission nebulae and the dust lanes of distant spirals from a backyard observatory.",
-    url: "https://example.com/nebula",
-    rss: "https://example.com/nebula/feed.xml"
-  },
-  {
-    title: "Byte & Canvas",
-    author: "Aria Vance",
-    category: "web",
-    categoryLabel: "Web Craft & Indie",
-    description: "Deep dives into CSS layout engines, creative coding, and hand-crafting beautiful digital experiences.",
-    url: "https://example.com/byte-canvas",
-    rss: "https://example.com/byte-canvas/rss"
-  },
-  {
-    title: "Dusk Whispers",
-    author: "Jules",
-    category: "musings",
-    categoryLabel: "Musings & Logs",
-    description: "Late-night thoughts on literature, vintage typewriters, and the quiet beauty of rainy afternoons.",
-    url: "https://example.com/dusk-whispers",
-    rss: "https://example.com/dusk-whispers/feed"
-  },
-  {
-    title: "Cosmic Horizons",
-    author: "Dr. Helen Ross",
-    category: "space",
-    categoryLabel: "Space & Astronomy",
-    description: "Explaining the physics of black holes and the early expansion of the universe in plain, poetic English.",
-    url: "https://example.com/cosmic",
-    rss: "https://example.com/cosmic/rss"
-  },
-  {
-    title: "Astro Almanac",
-    author: "Leo Smith",
-    category: "web",
-    categoryLabel: "Web Craft & Indie",
-    description: "A weekly digest of modern web development techniques, static-site generation, and building for the future.",
-    url: "https://example.com/almanac",
-    rss: "https://example.com/almanac/feed.xml"
-  },
-  {
-    title: "Transient States",
-    author: "Alex",
-    category: "musings",
-    categoryLabel: "Musings & Logs",
-    description: "A digital garden exploring the intersections of systems programming, photography, and philosophy.",
-    url: "https://example.com/transient",
-    rss: "https://example.com/transient/atom.xml"
-  }
-];
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
@@ -70,39 +13,7 @@ const blogs = [
 
   <div class="app-container">
     <!-- Header -->
-    <header class="app-header">
-      <div class="logo-container">
-        <div class="logo-badge">
-          <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <div class="logo-text-group">
-          <h1 class="logo-title">
-            ~ajhalili2006's <span class="gradient-text">blogroll</span>
-          </h1>
-          <p class="logo-subtitle">atmospheric webs & digital gardens</p>
-        </div>
-      </div>
-
-      <!-- Category Filter Dropdown -->
-      <div>
-        <DropdownMenu label="Filter Category">
-          <md-menu-item class="filter-item" data-category="all">
-            <div slot="headline">All Categories</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="space">
-            <div slot="headline">Space & Astronomy</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="web">
-            <div slot="headline">Web Craft & Indie</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="musings">
-            <div slot="headline">Musings & Logs</div>
-          </md-menu-item>
-        </DropdownMenu>
-      </div>
-    </header>
+		<Header />
 
     <!-- Hero Area -->
     <section class="hero-section">
@@ -110,94 +21,11 @@ const blogs = [
         Curating the feeds of the <span class="hero-highlight">indie web</span>.
       </h2>
       <p class="hero-description">
-        A collection of personal websites, space photography archives, and code diaries that make the internet feel like a community again. Use the dropdown filter above to explore by category.
+        Explore what I have been reading, listening and watching lately. As seen on my <a href="https://leaflet.andreijiroh.dev">(somewhat) monthly status updates</a>
       </p>
-
-      <div class="filter-badge-container" id="active-filter-container">
-        <span class="badge" id="filter-badge">
-          Showing: <span class="badge-highlight" id="filter-badge-text">All Categories</span>
-        </span>
-      </div>
     </section>
 
-    <!-- Grid of Blog Cards -->
-    <main class="blog-grid" id="blog-grid">
-      {blogs.map(blog => (
-        <article class="blog-card" data-category={blog.category}>
-          <div class="card-header">
-            <span class={`card-badge category-${blog.category}`}>
-              {blog.categoryLabel}
-            </span>
-            <span class="card-author">by {blog.author}</span>
-          </div>
-
-          <h3 class="card-title">{blog.title}</h3>
-          
-          <p class="card-description">
-            {blog.description}
-          </p>
-
-          <div class="card-actions">
-            <a href={blog.url} target="_blank" rel="noopener noreferrer" class="flex-grow-1">
-              <md-filled-button class="w-full" style="--md-filled-button-container-height: 36px; font-size: 13px;">
-                Visit Blog
-              </md-filled-button>
-            </a>
-            <a href={blog.rss} target="_blank" rel="noopener noreferrer" title="Subscribe to feed">
-              <md-outlined-button style="--md-outlined-button-container-height: 36px; --md-outlined-button-outline-color: var(--md-sys-color-outline-variant); font-size: 13px;">
-                RSS Feed
-              </md-outlined-button>
-            </a>
-          </div>
-        </article>
-      ))}
-    </main>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p>&copy; {new Date().getFullYear()} ~ajhalili2006. Handcrafted with Astro &amp; Material 3 Web.</p>
-      <p class="status-indicator">
-        <span class="status-dot"></span>
-        Available for syndication
-      </p>
-    </footer>
+		<!-- Footer -->
+    <Footer />
   </div>
 </Layout>
-
-<script>
-  // Import the buttons for layout consistency
-  import '@material/web/button/filled-button.js';
-  import '@material/web/button/outlined-button.js';
-
-  const filterItems = document.querySelectorAll('.filter-item');
-  const blogGrid = document.getElementById('blog-grid');
-  const blogCards = blogGrid?.querySelectorAll('article');
-  const filterBadgeText = document.getElementById('filter-badge-text');
-
-  filterItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      const selectedCategory = item.getAttribute('data-category');
-      const headline = item.querySelector('[slot="headline"]')?.textContent || "All";
-
-      // Update badge text
-      if (filterBadgeText) {
-        filterBadgeText.textContent = headline;
-      }
-
-      // Filter card visibility
-      if (blogCards) {
-        blogCards.forEach(card => {
-          const cardCategory = card.getAttribute('data-category');
-          if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-            card.classList.remove('hidden');
-            // Re-apply block layout or default structure
-            card.style.display = 'flex';
-          } else {
-            card.classList.add('hidden');
-            card.style.display = 'none';
-          }
-        });
-      }
-    });
-  });
-</script>

@@ -1,6 +1,6 @@
 # Atmospheric Blogrolls
 
-🌐 **Live demo**: <https://blogroll.andreijiroh.dev> (pending deploy)
+[🌐 **Live demo** (currently MVP on the frontend)](https://blogroll.andreijiroh.dev) | [📝 **Planning docs**](https://docs.google.com/document/d/1-k6EbvXpzq6IXzv2mV57geAh7ZyiBtxOn1a4IEOSCrE/edit)
 
 A experimental side webapp for sharing my blogroll the Atmospheric way integrating Semble + Margin APIs and AT Proto SDK with [standard.site]-inspired custom lexicons for blogrolls. Built with Astro + Material Design (via `@material/web` npm package) for [CodeTV](https://codetv.dev)'s [AT Proto-themed Web Dev Challenge hackathon](https://codetv.dev/hackathon/rebuild-your-website-again).
 
@@ -10,7 +10,7 @@ It's still a work in progress due to me poking around Antigravity CLI (as a regu
 
 For the repository itself, it is primarily hosted over at [Tangled]() with mirrors for [GitLab.com](https://gitlab.com/andreijiroh-dev/labs/atmospheric-blogrolls) and [GitHub](https://github.com/andreijirohdev-labs/atmospheric-blogrolls).
 
-As for the website itself, it currently hosted over at Deno Deploy.
+As for the website itself, it currently hosted over at Deno Deploy via the Deno adapter. If you fork at will, feel free to swap with your favorite adapter as needed.
 
 ## Astro Docs!
 
@@ -40,24 +40,24 @@ In this Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+To learn more about the folder structure of an Astro project, refer to [its guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ### 🧞 Astro Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                     | Action                                           |
+| :-------------------------- | :----------------------------------------------- |
+| `deno install`              | Installs dependencies                            |
+| `deno task dev`             | Starts local dev server at `localhost:4321`      |
+| `deno task build`           | Build your production site to `./dist/`          |
+| `deno task preview`         | Preview your build locally, before deploying     |
+| `deno run npm:astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `deno run npm:astro --help` | Get help using the Astro CLI                     |
 
 ### 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check [the Astro documentation](https://docs.astro.build) or jump into their [Discord server](https://astro.build/chat).
 
 ## License
 

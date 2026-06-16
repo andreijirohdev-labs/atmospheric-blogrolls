@@ -47,6 +47,30 @@ import Footer from '../components/Footer.astro';
     margin-top: 2rem;
     flex-wrap: wrap;
   }
+
+  /* The Fix: Target the M3 Web Components using their specific 
+    CSS Custom Properties (Design Tokens) to adjust internal padding 
+  */
+  md-filled-button,
+  md-outlined-button {
+    /* 1. Strip away any accidental global padding applied to the host tag */
+    padding: 0;
+    margin: 0;
+
+    /* 2. Set the internal text spacing using M3 tokens */
+    --md-filled-button-leading-space: 24px;
+    --md-filled-button-trailing-space: 48px;
+    --md-outlined-button-leading-space: 24px;
+    --md-outlined-button-trailing-space: 48px;
+
+    /* 3. Force a consistent minimum height so the text centers vertically */
+    --md-filled-button-container-height: 48px;
+    --md-outlined-button-container-height: 48px;
+    
+    /* 4. Ensure the text isn't overriding the M3 typography scale */
+    --md-filled-button-label-text-font: 'Roboto', system-ui, sans-serif;
+    --md-outlined-button-label-text-font: 'Roboto', system-ui, sans-serif;
+  }
 </style>
 
 <script>

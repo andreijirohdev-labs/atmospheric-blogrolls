@@ -1,0 +1,7 @@
+{
+  "deno.enable": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "git.alwaysSignOff": true
+}

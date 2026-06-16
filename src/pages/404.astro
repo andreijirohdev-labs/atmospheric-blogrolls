@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Page Not Found">
+  <!-- Background glowing shapes for the atmospheric feel -->
+  <div class="bg-glow-container">
+    <div class="glow-bubble-1"></div>
+    <div class="glow-bubble-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <Header />
+
+    <!-- Hero Area -->
+    <section class="hero-section">
+      <h2 class="hero-title">
+        That page doesn't exist here
+      </h2>
+      <p class="hero-description">
+        Either we're working onto that, moved around without redirects or removed for reasons.
+      </p>
+      
+      <div class="actions-container">
+        <md-filled-button href="/">
+          Go back home
+        </md-filled-button>
+        <md-outlined-button href="https://gitlab.com/andreijiroh-dev/labs/atmospheric-blogrolls/-/issues/new" target="_blank">
+          Report issue
+        </md-outlined-button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .actions-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+</style>
+
+<script>
+  import '@material/web/button/filled-button.js';
+  import '@material/web/button/outlined-button.js';
+</script>

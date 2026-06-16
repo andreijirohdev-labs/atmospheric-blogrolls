@@ -1,19 +1,26 @@
 ---
 interface Props {
-  label?: string;
+  ariaLabel?: string;
 }
 
-const { label = "Show Menu" } = Astro.props;
+const { ariaLabel = "Open navigation menu" } = Astro.props;
 ---
 <span class="relative inline-block dropdown-container">
-  <md-filled-button class="menu-anchor">{label}</md-filled-button>
+  <md-icon-button class="menu-anchor" aria-label={ariaLabel}>
+    <md-icon>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+      </svg>
+    </md-icon>
+  </md-icon-button>
   <md-menu class="menu-element">
     <slot />
   </md-menu>
 </span>
 
 <script>
-  import '@material/web/button/filled-button.js';
+  import '@material/web/iconbutton/icon-button.js';
+  import '@material/web/icon/icon.js';
   import '@material/web/menu/menu.js';
   import '@material/web/menu/menu-item.js';
 
@@ -35,3 +42,4 @@ const { label = "Show Menu" } = Astro.props;
     }
   });
 </script>
+

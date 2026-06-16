@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Reading" description=""Long reads from different topics, from the latest research in AI and neuroscience, to decentralization and federation of the internet and the Web, and everything in between.>
+  <!-- Background glowing shapes for the atmospheric feel -->
+  <div class="bg-glow-container">
+    <div class="glow-bubble-1"></div>
+    <div class="glow-bubble-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <Header />
+
+    <!-- Hero Area -->
+    <section class="hero-section">
+      <h2 class="hero-title">
+        What I have been <span class="hero-highlight">Reading</span>
+      </h2>
+      <p class="hero-description">
+        Long reads from different topics, from the latest research in AI and neuroscience, to decentralization and federation of the internet and the Web, and everything in between.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <Footer />
+  </div>
+</Layout>

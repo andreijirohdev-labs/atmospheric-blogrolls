@@ -1,31 +1,59 @@
 ---
 import DropdownMenu from "./DropdownMenu.astro"
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/\/$/, "");
 ---
 <header class="app-header">
-      <div class="logo-container">
-        <div class="logo-text-group">
-          <h1 class="logo-title">
-            ~ajhalili2006's <span class="gradient-text">blogroll</span>
-          </h1>
-          <p class="logo-subtitle">atmospheric webs & digital gardens</p>
-        </div>
-      </div>
+  <div class="logo-container">
+    <div class="logo-text-group">
+      <h1 class="logo-title">
+        ~ajhalili2006's <span class="gradient-text">blogroll</span>
+      </h1>
+      <p class="logo-subtitle">atmospheric webs & digital gardens</p>
+    </div>
+  </div>
 
-      <!-- Category Filter Dropdown -->
-      <div>
-        <DropdownMenu label="Filter Category">
-          <md-menu-item class="filter-item" data-category="all">
-            <div slot="headline">All Categories</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="space">
-            <div slot="headline">Space & Astronomy</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="web">
-            <div slot="headline">Web Craft & Indie</div>
-          </md-menu-item>
-          <md-menu-item class="filter-item" data-category="musings">
-            <div slot="headline">Musings & Logs</div>
-          </md-menu-item>
-        </DropdownMenu>
-      </div>
-    </header>
+  <!-- Desktop Navigation (Visible on Tablet & Desktop) -->
+  <nav class="desktop-nav">
+    <a href="/" class={`nav-link ${currentPath === "" ? "active" : ""}`}>Homepage</a>
+    <a href="/read" class={`nav-link ${currentPath === "/read" ? "active" : ""}`}>Reading</a>
+    <a href="/listen" class={`nav-link ${currentPath === "/listen" ? "active" : ""}`}>Listening</a>
+    <a href="/watch" class={`nav-link ${currentPath === "/watch" ? "active" : ""}`}>Watching</a>
+    <a href="/archive" class={`nav-link ${currentPath === "/archive" ? "active" : ""}`}>Archives</a>
+  </nav>
+
+  <!-- Mobile Navigation (Visible on Mobile only) -->
+  <div class="mobile-nav">
+    <DropdownMenu ariaLabel="Open navigation menu">
+      <md-menu-item class="menu-item-link" data-href="/" selected={currentPath === ""}>
+        <div slot="headline">Homepage</div>
+      </md-menu-item>
+      <md-menu-item class="menu-item-link" data-href="/read" selected={currentPath === "/read"}>
+        <div slot="headline">Reading</div>
+      </md-menu-item>
+      <md-menu-item class="menu-item-link" data-href="/listen" selected={currentPath === "/listen"}>
+        <div slot="headline">Listening</div>
+      </md-menu-item>
+      <md-menu-item class="menu-item-link" data-href="/watch" selected={currentPath === "/watch"}>
+        <div slot="headline">Watching</div>
+      </md-menu-item>
+      <md-menu-item class="menu-item-link" data-href="/archive" selected={currentPath === "/archive"}>
+        <div slot="headline">Archives</div>
+      </md-menu-item>
+    </DropdownMenu>
+  </div>
+</header>
+
+<script>
+  // Dynamic navigation when clicking dropdown menu items on mobile
+  const menuItems = document.querySelectorAll('.menu-item-link');
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const href = item.getAttribute('data-href');
+      if (href) {
+        window.location.href = href;
+      }
+    });
+  });
+</script>

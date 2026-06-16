@@ -6,10 +6,13 @@ interface Props {
 	description?: string;
 }
 
+const defaultTitle = "~ajhalili2006's blogroll";
 const { 
-	title = "~ajhalili2006's blogroll - Atmospheric Webs & Digital Gardens",
-	description = "A curated collection of personal websites, space photography archives, and code diaries from the cozy corners of the web."
+	title,
+	description = "Explore what I have been reading, listening and watching lately. As seen on my (somewhat monthly) status updates over at Leaflet."
 } = Astro.props;
+
+const pageTitle = title ? `${title} - ${defaultTitle}` : defaultTitle;
 ---
 <!doctype html>
 <html lang="en">
@@ -21,9 +24,9 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		
 		<!-- SEO Meta Tags -->
-		<title>{title}</title>
+		<title>{pageTitle}</title>
 		<meta name="description" content={description} />
-		<meta property="og:title" content={title} />
+		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		

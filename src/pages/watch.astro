@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Watching" description="Video podcasts I watch, online series I follow, and then some. From documentaries, fandom basics all the way down to Philippine politics and history.">
+  <!-- Background glowing shapes for the atmospheric feel -->
+  <div class="bg-glow-container">
+    <div class="glow-bubble-1"></div>
+    <div class="glow-bubble-2"></div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <Header />
+
+    <!-- Hero Area -->
+    <section class="hero-section">
+      <h2 class="hero-title">
+        What I have been <span class="hero-highlight">Watching</span>
+      </h2>
+      <p class="hero-description">
+        Video podcasts I watch, online series I follow, and then some. From documentaries, fandom basics all the way down to Philippine politics and history.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <Footer />
+  </div>
+</Layout>

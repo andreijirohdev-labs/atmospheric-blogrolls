@@ -142,21 +142,10 @@ body {
   gap: 0.75rem;
 }
 
-.logo-badge {
+.logo-img {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 15px -3px rgba(124, 147, 254, 0.2);
-}
-
-.logo-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--dusk-950);
+  object-fit: contain;
 }
 
 .logo-text-group {

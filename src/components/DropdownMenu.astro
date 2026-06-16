@@ -1,0 +1,37 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Show Menu" } = Astro.props;
+---
+<span class="relative inline-block dropdown-container">
+  <md-filled-button class="menu-anchor">{label}</md-filled-button>
+  <md-menu class="menu-element">
+    <slot />
+  </md-menu>
+</span>
+
+<script>
+  import '@material/web/button/filled-button.js';
+  import '@material/web/menu/menu.js';
+  import '@material/web/menu/menu-item.js';
+
+  // Dynamically query all dropdown containers and wire up the trigger button to the menu
+  const containers = document.querySelectorAll('.dropdown-container');
+
+  containers.forEach((container) => {
+    const anchor = container.querySelector('.menu-anchor') as HTMLElement | null;
+    // Using any for the custom element to bypass typescript typing on standard HTMLElement
+    const menu = container.querySelector('.menu-element') as any;
+
+    if (anchor && menu) {
+      // Set the anchor element programmatically to avoid ID namespace collisions
+      menu.anchorElement = anchor;
+
+      anchor.addEventListener('click', () => {
+        menu.open = !menu.open;
+      });
+    }
+  });
+</script>

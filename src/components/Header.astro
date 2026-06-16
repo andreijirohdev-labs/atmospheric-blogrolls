@@ -1,0 +1,31 @@
+---
+import DropdownMenu from "./DropdownMenu.astro"
+---
+<header class="app-header">
+      <div class="logo-container">
+        <div class="logo-text-group">
+          <h1 class="logo-title">
+            ~ajhalili2006's <span class="gradient-text">blogroll</span>
+          </h1>
+          <p class="logo-subtitle">atmospheric webs & digital gardens</p>
+        </div>
+      </div>
+
+      <!-- Category Filter Dropdown -->
+      <div>
+        <DropdownMenu label="Filter Category">
+          <md-menu-item class="filter-item" data-category="all">
+            <div slot="headline">All Categories</div>
+          </md-menu-item>
+          <md-menu-item class="filter-item" data-category="space">
+            <div slot="headline">Space & Astronomy</div>
+          </md-menu-item>
+          <md-menu-item class="filter-item" data-category="web">
+            <div slot="headline">Web Craft & Indie</div>
+          </md-menu-item>
+          <md-menu-item class="filter-item" data-category="musings">
+            <div slot="headline">Musings & Logs</div>
+          </md-menu-item>
+        </DropdownMenu>
+      </div>
+    </header>

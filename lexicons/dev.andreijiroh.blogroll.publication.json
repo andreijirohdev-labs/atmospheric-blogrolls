@@ -1,0 +1,27 @@
+{
+  "lexicon": 1,
+  "id": "dev.andreijiroh.blogroll.publication",
+  "description": "A custom lexicon for sharing publications in a blogroll, forked from the site.standard.publication lexicion.",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["url","name"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Base url for the publication. (ex: https://standard.site). This value will be combined with the document path to construct a full URL for the document. Avoid trailing slashes."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the publication.",
+          "maxLength": 5000,
+          "maxGraphemes": 500
+        },
+        "labels":{
+          "refs":["com.atproto.label.defs#selfLabels"],
+          "type":"union",
+          "description":"Self-label values for this publication. Effectively content warnings."}
+      }
+    }
+  }
+}

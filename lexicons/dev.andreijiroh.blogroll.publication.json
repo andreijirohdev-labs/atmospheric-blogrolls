@@ -22,6 +22,14 @@
           "type":"union",
           "description":"Self-label values for this publication. Effectively content warnings."}
       }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "read",
+        "watch",
+        "listen"
+      ]
     }
   }
 }
